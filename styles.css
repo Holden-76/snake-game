@@ -1,0 +1,177 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0d1117;
+  --panel: rgba(255, 255, 255, 0.07);
+  --text: #f5f7fb;
+  --accent: #38e77c;
+  --grid: rgba(255, 255, 255, 0.08);
+  --danger: #f56565;
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 25% 20%, rgba(56, 231, 124, 0.08), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(108, 99, 255, 0.1), transparent 30%),
+    radial-gradient(circle at 60% 60%, rgba(255, 99, 146, 0.08), transparent 30%),
+    #0a0d13;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.app {
+  width: min(100%, 900px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.app__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.subtitle {
+  margin: 0.35rem 0 0;
+  color: rgba(245, 247, 251, 0.75);
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.status__item {
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  gap: 0.2rem;
+}
+
+.label {
+  color: rgba(245, 247, 251, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+}
+
+.value {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.board {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+}
+
+#board {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent 35%),
+    radial-gradient(circle at 70% 60%, rgba(56, 231, 124, 0.08), transparent 30%),
+    #0d1117;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+.overlay__card {
+  background: var(--panel);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  width: min(320px, 90%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow);
+}
+
+.help {
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.help h2 {
+  margin-top: 0;
+}
+
+.help ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  color: rgba(245, 247, 251, 0.85);
+}
+
+@media (max-width: 620px) {
+  .controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .app {
+    padding: 1.25rem;
+  }
+}
